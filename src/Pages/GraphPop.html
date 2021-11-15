@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphics of Population</title>
+    <style>
+        #myChart {
+            width: 1vw;
+            height: 1vh;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myChart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const url = "http://localhost:8080/";
+        const data = {
+            "year": "2021", "pop": "12188", "howYears": "20",
+        }
+        axios.post(url, data)
+            .then(res => produzirCharts(res.data))
+            .catch(err => console.log(err))
+
+        function produzirCharts(data) {
+            console.log(data);
+            let labels = [];
+            dados = [];
+
+            for (const key in data) {
+                labels.push(key)
+                dados.push(data[key])
+            }
+
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Crescimento populacional de Morrinhos - CE',
+                        data: dados,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+
+        }
+    </script>
+</body>
+
+</html>
