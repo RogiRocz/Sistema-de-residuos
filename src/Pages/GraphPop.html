@@ -7,15 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphics of Population</title>
     <style>
-        #myChart {
-            width: 1vw;
-            height: 1vh;
+        .containerCanva {
+            margin: auto;
+            position: relative;
+            width: 80vw;
+            height: 80vh;
         }
     </style>
 </head>
 
 <body>
-    <canvas id="myChart"></canvas>
+    <div class="containerCanva">
+        <canvas id="myChart"></canvas>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
@@ -45,10 +49,11 @@
                     datasets: [{
                         label: 'Crescimento populacional de Morrinhos - CE',
                         data: dados,
-                        borderWidth: 1
+                        backgroundColor: "#0093db",
                     }]
                 },
                 options: {
+                    maintainAspectRadio: false,
                     scales: {
                         y: {
                             beginAtZero: true
