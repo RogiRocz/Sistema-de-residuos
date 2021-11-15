@@ -1,5 +1,4 @@
 const express = require("express")
-const { dirname } = require("path")
 const path = require("path")
 const route = express.Router()
 
@@ -21,11 +20,12 @@ function estimativa({ year, pop, howYears }) {
     return estimate;
 }
 
-route.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname + "/../Pages/index.html"))
+route.get("/GraphPop", (req, res) => {
+    console.log(req);
+    res.sendFile(path.join(__dirname + "/../Pages/GraphPop.html"))
 })
 
-route.post("/", (req, res) => {
+route.post("/GraphPop", (req, res) => {
     const result = estimativa(req.body)
     res.send(result)
 })
