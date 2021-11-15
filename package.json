@@ -5,10 +5,16 @@
   "repository": "https://github.com/RogiRocz/Sistema-de-residuos.git",
   "author": "RogiRocz <rogirocz@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-server": "^14.0.0"
   },
   "devDependencies": {
+    "body-parser": "^1.19.0",
     "nodemon": "^2.0.15"
   }
 }
