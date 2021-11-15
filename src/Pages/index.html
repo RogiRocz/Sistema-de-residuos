@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina index</title>
+</head>
+
+<body>
+    <form method="post">
+        <input type="number" name="year" id="year" placeholder="Insira o ano">
+        <input type="number" name="pop" id="pop" placeholder="Insira a populacao">
+        <input type="number" name="howYears" id="howYears" placeholder="Insira a estimativa">
+        <input type="submit" value="Calcular">
+    </form>
+
+    <script>
+        let req = new XMLHttpRequest()
+        req.open("POST", "http://localhost:8080/", false)
+        req.send();
+        // console.log(req.responseText);
+    </script>
+</body>
+
+</html>
